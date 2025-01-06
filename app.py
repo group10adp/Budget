@@ -97,7 +97,9 @@ def fetch_historical_data(user_id, year):
         print(f"Error fetching historical data: {e}")
         return {}
 
-
+@app.roout('/')
+def welcome():
+    return jsonify({"welcome": "Runninh"}),200
 @app.route('/<string:user_id>/<int:year>', methods=['GET'])
 def get_budget(user_id, year):
     try:
