@@ -16,19 +16,19 @@ ENCRYPTED_DATA = b'gAAAAABne7Me2dJZKRdXKvVj-OGR1zmTjjFfZYhn1hQylzuICG2oyxt-NxIcF
 
 
 
+
 def decrypt_data(encrypted_data, key):
     """Decrypt encrypted data using the provided key."""
     fernet = Fernet(key)
     decrypted_data = fernet.decrypt(encrypted_data)
     return decrypted_data.decode()
 
-
 # Initialize Firebase Admin SDK
-if not initialize_app._apps:
+if not firebase_admin._apps:
     decrypted_data = decrypt_data(ENCRYPTED_DATA, KEY)
     credentials_dict = json.loads(decrypted_data.strip("'"))
     cred = credentials.Certificate(credentials_dict)
-    initialize_app(cred)
+    firebase_admin.initialize_app(cred)
 
 
 def analyze_and_create_budget(historical_data, savings_percentage=20):
