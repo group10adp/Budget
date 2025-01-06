@@ -1,6 +1,7 @@
 import os
 import uvicorn
 from fastapi import FastAPI, HTTPException
+import firebase_admin
 from firebase_admin import credentials, firestore, initialize_app
 import numpy as np
 from sklearn.linear_model import LinearRegression
